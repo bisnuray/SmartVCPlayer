@@ -22,24 +22,24 @@ except ModuleNotFoundError:
 class Config:
     #Telegram API Stuffs
     load_dotenv()  # load enviroment variables from .env file
-    ADMIN = os.environ.get("ADMINS", '1783730975 947114313')
+    ADMIN = os.environ.get("ADMINS", '')
     SUDO = [int(admin) for admin in (ADMIN).split()] # Exclusive for heroku vars configuration.
     ADMINS = [int(admin) for admin in (ADMIN).split()] #group admins will be appended to this list.
-    API_ID = int(os.environ.get("API_ID", '29930260'))
-    API_HASH = os.environ.get("API_HASH", "39ce391df95a43d32fd09dac7a4eabbf")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "6434048431:AAHpu5qZjJNDMgsXPMFe0bkYK6haoEbEedA")     
-    SESSION = os.environ.get("SESSION_STRING", "AQHIsxQACePnE3ZHpgwsvyqvi1qojk1ReJDSZzHN9Odz86xFusUuoE5OWqViW6qBmOUJjR7K8FxVPG1_GHwVIxq-5XL9ZPDddn1dK8SLabGIogSD27MakqHLAjdV9vNWZyvYGfvoMrvZFtOu8BC7Y3GlgE3ek0utrvcUW1M6blrR2vR_ypy7Ws4lnmkOlUldW7rjSHK0vntrmxLb5wQSSAjitJXZNdYbw9LRIYPnMnxg4qkRqIbINBKarqqa0LO4VTHsuxc1hgfKPq1xf6rGIESxd81wF1s1XSG_3WEbWcm6iVVH1AW5Md43nHxNqxr8dEFWfmEIZsIGJpWMo1EcVhpg2NOpSwAAAAFyAtkdAA")
+    API_ID = int(os.environ.get("API_ID", ''))
+    API_HASH = os.environ.get("API_HASH", "")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "")     
+    SESSION = os.environ.get("SESSION_STRING", "")
 
     #Stream Chat and Log Group
-    CHAT = int(os.environ.get("CHAT", "-1001749120303"))
-    LOG_GROUP=os.environ.get("LOG_GROUP", "-1001749120303")
+    CHAT = int(os.environ.get("CHAT", ""))
+    LOG_GROUP=os.environ.get("LOG_GROUP", "")
 
     #Stream 
     STREAM_URL=os.environ.get("STARTUP_STREAM", "https://d2q8p4pe5spbak.cloudfront.net/bpk-tv/9XM/9XM.isml/9XM-audio_208482_und=208000-video=2137600.m3u8")
    
     #Database
     DATABASE_URI=os.environ.get("DATABASE_URI", None)
-    DATABASE_NAME=os.environ.get("DATABASE_NAME", "VCPlayerBot")
+    DATABASE_NAME=os.environ.get("DATABASE_NAME", "SmartVCPlayer")
 
 
     #heroku
@@ -56,7 +56,7 @@ class Config:
     
     RECORDING_DUMP=os.environ.get("RECORDING_DUMP", False)
     RECORDING_TITLE=os.environ.get("RECORDING_TITLE", False)
-    TIME_ZONE = os.environ.get("TIME_ZONE", "Asia/Kolkata")    
+    TIME_ZONE = os.environ.get("TIME_ZONE", "Asia/Dhaka")    
     IS_VIDEO=is_enabled(os.environ.get("IS_VIDEO", 'True'))
     IS_LOOP=is_enabled(os.environ.get("IS_LOOP", 'True'))
     DELAY=int(os.environ.get("DELAY", '10'))
