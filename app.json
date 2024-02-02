@@ -1,0 +1,85 @@
+{
+    "name": "SmartVCPlayer",
+    "description": "Telegram bot to stream video in telegram VC",
+    "repository": "https://github.com/bisnuray/SmartVCPlayer",
+    "stack": "container",
+    "keywords": [
+      "telegram",
+      "bot",
+      "voicechat",
+      "music",
+      "python",
+      "pyrogram",
+      "pytgcalls",
+      "tgcalls",
+      "voip"
+    ],
+    "env": {
+      "API_ID": {
+        "description": "api_id part of your Telegram API Key from my.telegram.org/apps",
+        "required": true
+      },
+      "API_HASH": {
+        "description": "api_hash part of your Telegram API Key from my.telegram.org/apps",
+        "required": true
+      },
+      "BOT_TOKEN": {
+        "description": "Bot token of Bot, get from @Botfather",
+        "required": true
+      },
+      "SESSION_STRING": {
+        "description": "Session string, read the README to learn how to export it with Pyrogram",
+        "required": true
+      },
+      "CHAT": {
+        "description": "ID of Channel or Group where the Bot plays Music",
+        "required": true
+      },
+      "LOG_GROUP": {
+        "description": "ID of the group to send playlist If CHAT is a Group, if channel then leave blank",
+        "required": false
+      },
+      "QUALITY": {
+        "description": "Default quality of your video player, Use one of high, medium or low.",
+        "value": "high",
+        "required": false
+      },
+      "DATABASE_URI": {
+        "description": "Mongo DB database URI , get from https://cloud.mongodb.com, even if this is optional, many of functions may not work if this is not set.",
+        "required": false
+      },
+      "ADMINS": {
+        "description": "ID of Users who can use Admin commands(for multiple users seperated by space)",
+        "required": true
+      },
+      "ADMIN_ONLY": {
+        "description": "Change it to True if you want to make /play command available for everyone.",
+        "value": "False",
+        "required": false
+      },
+      "HEROKU_API_KEY": {
+        "description": "Your heroku api key, get it from https://dashboard.heroku.com/account/applications/authorizations/new.",
+        "required": false
+      },
+      "HEROKU_APP_NAME": {
+        "description": "Heroku App Name.",
+        "required": false
+      },
+      "STARTUP_STREAM": {
+        "description": "YouTube live / Direct link to a video / Telegram link to a YouTube playlist.(Read the README for more info.) ",
+        "value": "https://youtu.be/zcrUCvBD16k",
+        "required": false
+      },
+      "REPLY_MESSAGE": {
+        "description": "A reply message to those who message the USER account in PM. Make it blank if you do not need this feature.",
+        "value": "Hey, Iam a bot to play music, not having time to chat with you.",
+        "required": false
+      }
+    },
+    "formation": {
+      "worker": {
+        "quantity": 1,
+        "size": "free"
+      }
+    }
+  }
