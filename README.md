@@ -100,18 +100,17 @@ python3 main.py
 - Name: Bisnu Ray
 - Telegram: [@SmartBisnuBio](https://t.me/SmartBisnuBio)
 
-## Notice
+## Notice 🔔🔔
 
 <b>Editing a few lines of code and claiming authorship does not make you a developer. Fork responsibly and credit original sources.</b>
 
 ## Credits 🏆
 
-This project stands on the shoulders of giants, leveraging open-source contributions from the community. Special acknowledgements to:
+Huge thanks to the following individuals and their projects for making SmartVCPlayer possible:
 
-- **[Laky-64](https://github.com/Laky-64)** - For the development of [py-tgcalls](https://github.com/pytgcalls/pytgcalls), a powerful library that enables Telegram calls within Python applications. This library is fundamental for voice chat functionalities in SmartVCPlayer.
+- **[Laky-64](https://github.com/Laky-64)** for [py-tgcalls](https://github.com/pytgcalls/pytgcalls), enabling advanced voice chat capabilities.
+- **[Dan](https://github.com/delivrance)** for [Pyrogram](https://github.com/pyrogram/pyrogram), a robust framework for Telegram bot development.
 
-- **[Dan](https://github.com/delivrance)** - For creating [Pyrogram](https://github.com/pyrogram/pyrogram), a modern and asynchronous framework that simplifies Telegram Bot API interactions. Pyrogram's ease of use and comprehensive features have been instrumental in developing SmartVCPlayer's core features.
-
-We are deeply grateful to these contributors and the broader open-source community for making projects like SmartVCPlayer possible through their hard work and dedication.
+Their contributions are pivotal to the functionality and success of SmartVCPlayer.
 
 
