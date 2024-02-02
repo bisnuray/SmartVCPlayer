@@ -3,6 +3,7 @@ py-tgcalls==0.9.7
 parse-torrent-name
 tgcrypto
 yt-dlp
+ffmpeg
 youtube-search-python
 httpx==0.23.0
 youtube-search
