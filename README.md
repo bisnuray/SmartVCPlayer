@@ -75,6 +75,10 @@
 - ffmpeg version 4.2.7-0ubuntu0.1
 - [FFMpeg](https://www.ffmpeg.org/).
 
+## Deploy to Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://github.com/bisnuray/SmartVCPlayer)
+
 ## Deploy to VPS
 
 ```sh
