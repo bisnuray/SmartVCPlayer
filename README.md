@@ -72,6 +72,7 @@
 
 - Python 3.8 or higher.
 - NodeJS 15.0.0 or higher.
+- ffmpeg version 4.2.7-0ubuntu0.1
 - [FFMpeg](https://www.ffmpeg.org/).
 
 ## Deploy to VPS
