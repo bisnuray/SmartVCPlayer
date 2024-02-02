@@ -90,12 +90,12 @@ python3 main.py
 
 - [Live Channel](https://telegra.ph/Top-Music-Stream-Live-Link-02-02).
 
-## Main Author
+## Main Author 🧑‍💻
 
 - Name: Subin
 - Telegram: [@subin_works](https://t.me/subin_works)
 
-## Update Author
+## Update Author 🧑‍💻
 
 - Name: Bisnu Ray
 - Telegram: [@SmartBisnuBio](https://t.me/SmartBisnuBio)
