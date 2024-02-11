@@ -43,6 +43,22 @@ admin_filter=filters.create(is_admin)
 async def player(client, message):
     # Check if the command is used in a group chat
     if message.chat.type != enums.ChatType.PRIVATE:
+        # Check if the command is used in the authorized chat
+        if message.chat.id != Config.CHAT:
+            buttons = [
+                [
+                    InlineKeyboardButton(base64.b32decode('====A25NCCI4W35JAJZWWQVJARFJ2PC6'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('======IOFL6CGWBKDSVIHZFMN3U6S4FMSL54WZFNC3L2WXNMORYKHUROJ3Z6SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                    InlineKeyboardButton(base64.b32decode('===KGZVMICI4WU5NKCIKIOK4'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('=Q5KGCROSLY2WJNOUL26SSVNOB56SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                ]
+            ]
+            reply_markup = InlineKeyboardMarkup(buttons)
+            await message.reply(
+                "This is not the group which I have been configured to play in. Do you want to set this group as default CHAT?",
+                quote=False,
+                reply_markup=reply_markup
+            )
+            return
+
         administrators = []
         async for member in client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
             administrators.append(member.user.id)
@@ -106,6 +122,22 @@ async def player(client, message):
 async def skip_track(client, message):
     # Check if the command is used in a group chat
     if message.chat.type != enums.ChatType.PRIVATE:
+        # Check if the command is used in the authorized chat
+        if message.chat.id != Config.CHAT:
+            buttons = [
+                [
+                    InlineKeyboardButton(base64.b32decode('====A25NCCI4W35JAJZWWQVJARFJ2PC6'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('======IOFL6CGWBKDSVIHZFMN3U6S4FMSL54WZFNC3L2WXNMORYKHUROJ3Z6SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                    InlineKeyboardButton(base64.b32decode('===KGZVMICI4WU5NKCIKIOK4'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('=Q5KGCROSLY2WJNOUL26SSVNOB56SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                ]
+            ]
+            reply_markup = InlineKeyboardMarkup(buttons)
+            await message.reply(
+                "This is not the group which I have been configured to play in. Do you want to set this group as default CHAT?",
+                quote=False,
+                reply_markup=reply_markup
+            )
+            return
+
         administrators = []
         async for member in client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
             administrators.append(member.user.id)
@@ -184,6 +216,22 @@ async def skip_track(client, message):
 async def pause_playing(client, message):
     # Check if the command is used in a group chat
     if message.chat.type != enums.ChatType.PRIVATE:
+        # Check if the command is used in the authorized chat
+        if message.chat.id != Config.CHAT:
+            buttons = [
+                [
+                    InlineKeyboardButton(base64.b32decode('====A25NCCI4W35JAJZWWQVJARFJ2PC6'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('======IOFL6CGWBKDSVIHZFMN3U6S4FMSL54WZFNC3L2WXNMORYKHUROJ3Z6SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                    InlineKeyboardButton(base64.b32decode('===KGZVMICI4WU5NKCIKIOK4'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('=Q5KGCROSLY2WJNOUL26SSVNOB56SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                ]
+            ]
+            reply_markup = InlineKeyboardMarkup(buttons)
+            await message.reply(
+                "This is not the group which I have been configured to play in. Do you want to set this group as default CHAT?",
+                quote=False,
+                reply_markup=reply_markup
+            )
+            return
+
         administrators = []
         async for member in client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
             administrators.append(member.user.id)
@@ -236,6 +284,22 @@ async def pause_playing(client, message):
 async def resume_playing(client, message):
     # Check if the command is used in a group chat
     if message.chat.type != enums.ChatType.PRIVATE:
+        # Check if the command is used in the authorized chat
+        if message.chat.id != Config.CHAT:
+            buttons = [
+                [
+                    InlineKeyboardButton(base64.b32decode('====A25NCCI4W35JAJZWWQVJARFJ2PC6'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('======IOFL6CGWBKDSVIHZFMN3U6S4FMSL54WZFNC3L2WXNMORYKHUROJ3Z6SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                    InlineKeyboardButton(base64.b32decode('===KGZVMICI4WU5NKCIKIOK4'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('=Q5KGCROSLY2WJNOUL26SSVNOB56SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                ]
+            ]
+            reply_markup = InlineKeyboardMarkup(buttons)
+            await message.reply(
+                "This is not the group which I have been configured to play in. Do you want to set this group as default CHAT?",
+                quote=False,
+                reply_markup=reply_markup
+            )
+            return
+
         administrators = []
         async for member in client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
             administrators.append(member.user.id)
@@ -287,6 +351,22 @@ async def resume_playing(client, message):
 async def set_vol(client, message):
     # Check if the command is used in a group chat
     if message.chat.type != enums.ChatType.PRIVATE:
+        # Check if the command is used in the authorized chat
+        if message.chat.id != Config.CHAT:
+            buttons = [
+                [
+                    InlineKeyboardButton(base64.b32decode('====A25NCCI4W35JAJZWWQVJARFJ2PC6'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('======IOFL6CGWBKDSVIHZFMN3U6S4FMSL54WZFNC3L2WXNMORYKHUROJ3Z6SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                    InlineKeyboardButton(base64.b32decode('===KGZVMICI4WU5NKCIKIOK4'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('=Q5KGCROSLY2WJNOUL26SSVNOB56SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                ]
+            ]
+            reply_markup = InlineKeyboardMarkup(buttons)
+            await message.reply(
+                "This is not the group which I have been configured to play in. Do you want to set this group as default CHAT?",
+                quote=False,
+                reply_markup=reply_markup
+            )
+            return
+
         administrators = []
         async for member in client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
             administrators.append(member.user.id)
@@ -339,6 +419,22 @@ async def set_vol(client, message):
 async def set_mute(client, message):
     # Check if the command is used in a group chat
     if message.chat.type != enums.ChatType.PRIVATE:
+        # Check if the command is used in the authorized chat
+        if message.chat.id != Config.CHAT:
+            buttons = [
+                [
+                    InlineKeyboardButton(base64.b32decode('====A25NCCI4W35JAJZWWQVJARFJ2PC6'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('======IOFL6CGWBKDSVIHZFMN3U6S4FMSL54WZFNC3L2WXNMORYKHUROJ3Z6SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                    InlineKeyboardButton(base64.b32decode('===KGZVMICI4WU5NKCIKIOK4'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('=Q5KGCROSLY2WJNOUL26SSVNOB56SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                ]
+            ]
+            reply_markup = InlineKeyboardMarkup(buttons)
+            await message.reply(
+                "This is not the group which I have been configured to play in. Do you want to set this group as default CHAT?",
+                quote=False,
+                reply_markup=reply_markup
+            )
+            return
+
         administrators = []
         async for member in client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
             administrators.append(member.user.id)
@@ -390,6 +486,22 @@ async def set_mute(client, message):
 async def set_unmute(client, message):
     # Check if the command is used in a group chat
     if message.chat.type != enums.ChatType.PRIVATE:
+        # Check if the command is used in the authorized chat
+        if message.chat.id != Config.CHAT:
+            buttons = [
+                [
+                    InlineKeyboardButton(base64.b32decode('====A25NCCI4W35JAJZWWQVJARFJ2PC6'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('======IOFL6CGWBKDSVIHZFMN3U6S4FMSL54WZFNC3L2WXNMORYKHUROJ3Z6SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                    InlineKeyboardButton(base64.b32decode('===KGZVMICI4WU5NKCIKIOK4'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('=Q5KGCROSLY2WJNOUL26SSVNOB56SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                ]
+            ]
+            reply_markup = InlineKeyboardMarkup(buttons)
+            await message.reply(
+                "This is not the group which I have been configured to play in. Do you want to set this group as default CHAT?",
+                quote=False,
+                reply_markup=reply_markup
+            )
+            return
+
         administrators = []
         async for member in client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
             administrators.append(member.user.id)
@@ -442,6 +554,22 @@ async def set_unmute(client, message):
 async def replay_playout(client, message):
     # Check if the command is used in a group chat
     if message.chat.type != enums.ChatType.PRIVATE:
+        # Check if the command is used in the authorized chat
+        if message.chat.id != Config.CHAT:
+            buttons = [
+                [
+                    InlineKeyboardButton(base64.b32decode('====A25NCCI4W35JAJZWWQVJARFJ2PC6'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('======IOFL6CGWBKDSVIHZFMN3U6S4FMSL54WZFNC3L2WXNMORYKHUROJ3Z6SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                    InlineKeyboardButton(base64.b32decode('===KGZVMICI4WU5NKCIKIOK4'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('=Q5KGCROSLY2WJNOUL26SSVNOB56SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                ]
+            ]
+            reply_markup = InlineKeyboardMarkup(buttons)
+            await message.reply(
+                "This is not the group which I have been configured to play in. Do you want to set this group as default CHAT?",
+                quote=False,
+                reply_markup=reply_markup
+            )
+            return
+
         administrators = []
         async for member in client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
             administrators.append(member.user.id)
@@ -487,6 +615,22 @@ async def replay_playout(client, message):
 async def show_player(client, message):
     # Check if the command is used in a group chat
     if message.chat.type != enums.ChatType.PRIVATE:
+        # Check if the command is used in the authorized chat
+        if message.chat.id != Config.CHAT:
+            buttons = [
+                [
+                    InlineKeyboardButton(base64.b32decode('====A25NCCI4W35JAJZWWQVJARFJ2PC6'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('======IOFL6CGWBKDSVIHZFMN3U6S4FMSL54WZFNC3L2WXNMORYKHUROJ3Z6SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                    InlineKeyboardButton(base64.b32decode('===KGZVMICI4WU5NKCIKIOK4'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('=Q5KGCROSLY2WJNOUL26SSVNOB56SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                ]
+            ]
+            reply_markup = InlineKeyboardMarkup(buttons)
+            await message.reply(
+                "This is not the group which I have been configured to play in. Do you want to set this group as default CHAT?",
+                quote=False,
+                reply_markup=reply_markup
+            )
+            return
+
         administrators = []
         async for member in client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
             administrators.append(member.user.id)
@@ -539,6 +683,22 @@ async def show_player(client, message):
 async def seek_playout(client, message):
     # Check if the command is used in a group chat
     if message.chat.type != enums.ChatType.PRIVATE:
+        # Check if the command is used in the authorized chat
+        if message.chat.id != Config.CHAT:
+            buttons = [
+                [
+                    InlineKeyboardButton(base64.b32decode('====A25NCCI4W35JAJZWWQVJARFJ2PC6'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('======IOFL6CGWBKDSVIHZFMN3U6S4FMSL54WZFNC3L2WXNMORYKHUROJ3Z6SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                    InlineKeyboardButton(base64.b32decode('===KGZVMICI4WU5NKCIKIOK4'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('=Q5KGCROSLY2WJNOUL26SSVNOB56SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                ]
+            ]
+            reply_markup = InlineKeyboardMarkup(buttons)
+            await message.reply(
+                "This is not the group which I have been configured to play in. Do you want to set this group as default CHAT?",
+                quote=False,
+                reply_markup=reply_markup
+            )
+            return
+
         administrators = []
         async for member in client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
             administrators.append(member.user.id)
@@ -619,6 +779,22 @@ def construct_title(data, Config):
 async def settings(client, message):
     # Check if the command is used in a group chat
     if message.chat.type != enums.ChatType.PRIVATE:
+        # Check if the command is used in the authorized chat
+        if message.chat.id != Config.CHAT:
+            buttons = [
+                [
+                    InlineKeyboardButton(base64.b32decode('====A25NCCI4W35JAJZWWQVJARFJ2PC6'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('======IOFL6CGWBKDSVIHZFMN3U6S4FMSL54WZFNC3L2WXNMORYKHUROJ3Z6SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                    InlineKeyboardButton(base64.b32decode('===KGZVMICI4WU5NKCIKIOK4'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('=Q5KGCROSLY2WJNOUL26SSVNOB56SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
+                ]
+            ]
+            reply_markup = InlineKeyboardMarkup(buttons)
+            await message.reply(
+                "This is not the group which I have been configured to play in. Do you want to set this group as default CHAT?",
+                quote=False,
+                reply_markup=reply_markup
+            )
+            return
+
         administrators = []
         async for member in client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
             administrators.append(member.user.id)
