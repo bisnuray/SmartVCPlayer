@@ -393,9 +393,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data.lower() == "mute":
             if Config.MUTED:
                 await unmute()
+                Config.MUTED =  False
                 await query.answer("Unmuted stream")
             else:
                 await mute()
+                Config.MUTED =  True
                 await query.answer("Muted stream")
             await sleep(1)
             await query.message.edit_reply_markup(reply_markup=await volume_buttons())
