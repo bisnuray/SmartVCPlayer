@@ -1223,6 +1223,7 @@ async def y_play(playlist):
         return False
 
 
+
 async def c_play(channel):
     if (str(channel)).startswith("-100"):
         channel=int(channel)
@@ -1232,7 +1233,7 @@ async def c_play(channel):
     try:
         chat=await USER.get_chat(channel)
         LOGGER.info(f"Searching files from {chat.title}")
-        me=["video", "document", "audio"]
+        me=[enums.MessagesFilter.VIDEO, enums.MessagesFilter.DOCUMENT, enums.MessagesFilter.AUDIO]
         who=0  
         for filter in me:
             if filter in Config.FILTERS:
@@ -1695,7 +1696,10 @@ async def get_height_and_width(file):
     )
     output, err = await process.communicate()
     stream = output.decode('utf-8')
-    out = json.loads(stream)
+    try:
+        out = json.loads(stream)
+    except:
+        out = {}
     try:
         n = out.get("streams")
         if not n:
