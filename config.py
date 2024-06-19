@@ -37,151 +37,145 @@ class Config:
     #Stream 
     STREAM_URL=os.environ.get("STARTUP_STREAM", "https://d2q8p4pe5spbak.cloudfront.net/bpk-tv/9XM/9XM.isml/9XM-audio_208482_und=208000-video=2137600.m3u8")
    
-    #Database
-    DATABASE_URI=os.environ.get("DATABASE_URI", None)
-    DATABASE_NAME=os.environ.get("DATABASE_NAME", "SmartVCPlayer")
+    # Database
+    DATABASE_URI = os.environ.get("DATABASE_URI", None)
+    DATABASE_NAME = os.environ.get("DATABASE_NAME", "SmartVCPlayer")
 
+    # Heroku
+    API_KEY = os.environ.get("HEROKU_API_KEY", None)
+    APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
 
-    #heroku
-    API_KEY=os.environ.get("HEROKU_API_KEY", None)
-    APP_NAME=os.environ.get("HEROKU_APP_NAME", None)
-
-
-    #Optional Configuration
-    SHUFFLE=is_enabled(os.environ.get("SHUFFLE", 'True'))
-    ADMIN_ONLY=is_enabled(os.environ.get("ADMIN_ONLY", "False"))
-    REPLY_MESSAGE=os.environ.get("REPLY_MESSAGE", False)
+    # Optional Configuration
+    SHUFFLE = is_enabled(os.environ.get("SHUFFLE", 'True'))
+    ADMIN_ONLY = is_enabled(os.environ.get("ADMIN_ONLY", "False"))
+    REPLY_MESSAGE = os.environ.get("REPLY_MESSAGE", False)
     EDIT_TITLE = os.environ.get("EDIT_TITLE", True)
-    #others
-    
-    RECORDING_DUMP=os.environ.get("RECORDING_DUMP", False)
-    RECORDING_TITLE=os.environ.get("RECORDING_TITLE", False)
-    TIME_ZONE = os.environ.get("TIME_ZONE", "Asia/Dhaka")    
-    IS_VIDEO=is_enabled(os.environ.get("IS_VIDEO", 'True'))
-    IS_LOOP=is_enabled(os.environ.get("IS_LOOP", 'True'))
-    DELAY=int(os.environ.get("DELAY", '10'))
-    PORTRAIT=is_enabled(os.environ.get("PORTRAIT", 'False'))
-    IS_VIDEO_RECORD=is_enabled(os.environ.get("IS_VIDEO_RECORD", 'True'))
-    DEBUG=is_enabled(os.environ.get("DEBUG", 'False'))
-    PTN=is_enabled(os.environ.get("PTN", "False"))
+    # Others
+    RECORDING_DUMP = os.environ.get("RECORDING_DUMP", False)
+    RECORDING_TITLE = os.environ.get("RECORDING_TITLE", False)
+    TIME_ZONE = os.environ.get("TIME_ZONE", "Asia/Dhaka")
+    IS_VIDEO = is_enabled(os.environ.get("IS_VIDEO", 'True'))
+    IS_LOOP = is_enabled(os.environ.get("IS_LOOP", 'True'))
+    DELAY = int(os.environ.get("DELAY", '10'))
+    PORTRAIT = is_enabled(os.environ.get("PORTRAIT", 'False'))
+    IS_VIDEO_RECORD = is_enabled(os.environ.get("IS_VIDEO_RECORD", 'True'))
+    DEBUG = is_enabled(os.environ.get("DEBUG", 'False'))
+    PTN = is_enabled(os.environ.get("PTN", "False"))
 
-    #Quality vars
-    E_BITRATE=os.environ.get("BITRATE", False)
-    E_FPS=os.environ.get("FPS", False)
-    CUSTOM_QUALITY=os.environ.get("QUALITY", "100")
+    # Quality vars
+    E_BITRATE = os.environ.get("BITRATE", '128000')
+    E_FPS = os.environ.get("FPS", '60')
+    CUSTOM_QUALITY = os.environ.get("QUALITY", "100")
 
-    #Search filters for cplay
-    FILTERS =  [filter.lower() for filter in (os.environ.get("FILTERS", "video document")).split(" ")]
+    # Search filters for cplay
+    FILTERS = [filter.lower() for filter in (os.environ.get("FILTERS", "video document")).split(" ")]
 
-
-    #Dont touch these, these are not for configuring player
-    GET_FILE={}
-    DATA={}
-    STREAM_END={}
-    SCHEDULED_STREAM={}
-    DUR={}
+    # Don't touch these, these are not for configuring player
+    GET_FILE = {}
+    DATA = {}
+    STREAM_END = {}
+    SCHEDULED_STREAM = {}
+    DUR = {}
     msg = {}
 
-    SCHEDULE_LIST=[]
-    playlist=[]
-    CONFIG_LIST = ["ADMINS", "IS_VIDEO", "IS_LOOP", "REPLY_PM", "ADMIN_ONLY", "SHUFFLE", "EDIT_TITLE", "CHAT", 
-    "SUDO", "REPLY_MESSAGE", "STREAM_URL", "DELAY", "LOG_GROUP", "SCHEDULED_STREAM", "SCHEDULE_LIST", 
-    "IS_VIDEO_RECORD", "IS_RECORDING", "WAS_RECORDING", "RECORDING_TITLE", "PORTRAIT", "RECORDING_DUMP", "HAS_SCHEDULE", 
-    "CUSTOM_QUALITY"]
+    SCHEDULE_LIST = []
+    playlist = []
+    CONFIG_LIST = ["ADMINS", "IS_VIDEO", "IS_LOOP", "REPLY_PM", "ADMIN_ONLY", "SHUFFLE", "EDIT_TITLE", "CHAT",
+                   "SUDO", "REPLY_MESSAGE", "STREAM_URL", "DELAY", "LOG_GROUP", "SCHEDULED_STREAM", "SCHEDULE_LIST",
+                   "IS_VIDEO_RECORD", "IS_RECORDING", "WAS_RECORDING", "RECORDING_TITLE", "PORTRAIT", "RECORDING_DUMP", "HAS_SCHEDULE",
+                   "CUSTOM_QUALITY"]
 
-    STARTUP_ERROR=None
+    STARTUP_ERROR = None
 
-    ADMIN_CACHE=False
-    CALL_STATUS=False
-    YPLAY=False
-    YSTREAM=False
-    CPLAY=False
-    STREAM_SETUP=False
-    LISTEN=False
-    STREAM_LINK=False
-    IS_RECORDING=False
-    WAS_RECORDING=False
-    PAUSE=False
-    MUTED=False
-    HAS_SCHEDULE=None
-    IS_ACTIVE=None
-    VOLUME=100
-    CURRENT_CALL=None
-    BOT_USERNAME=None
-    USER_ID=None
+    ADMIN_CACHE = False
+    CALL_STATUS = False
+    YPLAY = False
+    YSTREAM = False
+    CPLAY = False
+    STREAM_SETUP = False
+    LISTEN = False
+    STREAM_LINK = False
+    IS_RECORDING = False
+    WAS_RECORDING = False
+    PAUSE = False
+    MUTED = False
+    HAS_SCHEDULE = None
+    IS_ACTIVE = None
+    VOLUME = 100
+    CURRENT_CALL = None
+    BOT_USERNAME = None
+    USER_ID = None
 
     if LOG_GROUP:
-        LOG_GROUP=int(LOG_GROUP)
+        LOG_GROUP = int(LOG_GROUP)
     else:
-        LOG_GROUP=None
-    if not API_KEY or \
-       not APP_NAME:
-       HEROKU_APP=None
+        LOG_GROUP = None
+    if not API_KEY or not APP_NAME:
+        HEROKU_APP = None
     else:
-       HEROKU_APP=heroku3.from_key(API_KEY).apps()[APP_NAME]
-
+        HEROKU_APP = heroku3.from_key(API_KEY).apps()[APP_NAME]
 
     if EDIT_TITLE in ["NO", 'False']:
-        EDIT_TITLE=False
+        EDIT_TITLE = False
         LOGGER.info("Title Editing turned off")
     if REPLY_MESSAGE:
-        REPLY_MESSAGE=REPLY_MESSAGE
-        REPLY_PM=True
+        REPLY_MESSAGE = REPLY_MESSAGE
+        REPLY_PM = True
         LOGGER.info("Reply Message Found, Enabled PM MSG")
     else:
-        REPLY_MESSAGE=False
-        REPLY_PM=False
+        REPLY_MESSAGE = False
+        REPLY_PM = False
 
     if E_BITRATE:
-       try:
-          BITRATE=int(E_BITRATE)
-       except:
-          LOGGER.error("Invalid bitrate specified.")
-          E_BITRATE=False
-          BITRATE=48000
-       if not BITRATE >= 48000:
-          BITRATE=48000
+        try:
+            BITRATE = int(E_BITRATE)
+        except:
+            LOGGER.error("Invalid bitrate specified.")
+            E_BITRATE = False
+            BITRATE = 128000  # More better audio quality use 320000 for high-quality audio (320 kbps)
+        if not BITRATE >= 48000:
+            BITRATE = 128000  # Ensure higher bitrate
     else:
-       BITRATE=48000
-    
-    if E_FPS:
-       try:
-          FPS=int(E_FPS)
-       except:
-          LOGGER.error("Invalid FPS specified")
-          E_FPS=False
-       if not FPS >= 30:
-          FPS=30
-    else:
-       FPS=30
-    try:
-       CUSTOM_QUALITY=int(CUSTOM_QUALITY)
-       if CUSTOM_QUALITY > 100:
-          CUSTOM_QUALITY = 100
-          LOGGER.warning("maximum quality allowed is 100, invalid quality specified. Quality set to 100")
-       elif CUSTOM_QUALITY < 10:
-          LOGGER.warning("Minimum Quality allowed is 10., Qulaity set to 10")
-          CUSTOM_QUALITY = 10
-       if  66.9  < CUSTOM_QUALITY < 100:
-          if not E_BITRATE:
-             BITRATE=48000
-       elif 50 < CUSTOM_QUALITY < 66.9:
-          if not E_BITRATE:
-             BITRATE=36000
-       else:
-          if not E_BITRATE:
-             BITRATE=24000
-    except:
-       if CUSTOM_QUALITY.lower() == 'high':
-          CUSTOM_QUALITY=100
-       elif CUSTOM_QUALITY.lower() == 'medium':
-          CUSTOM_QUALITY=66.9
-       elif CUSTOM_QUALITY.lower() == 'low':
-          CUSTOM_QUALITY=50
-       else:
-          LOGGER.warning("Invalid QUALITY specified.Defaulting to High.")
-          CUSTOM_QUALITY=100
+        BITRATE = 128000  # Set default higher bitrate
 
+    if E_FPS:
+        try:
+            FPS = int(E_FPS)
+        except:
+            LOGGER.error("Invalid FPS specified")
+            E_FPS = False
+        if not FPS >= 30:
+            FPS = 60  # Ensure higher FPS for better quality
+    else:
+        FPS = 60  # Set default higher FPS
+
+    try:
+        CUSTOM_QUALITY = int(CUSTOM_QUALITY)
+        if CUSTOM_QUALITY > 100:
+            CUSTOM_QUALITY = 100
+            LOGGER.warning("maximum quality allowed is 100, invalid quality specified. Quality set to 100")
+        elif CUSTOM_QUALITY < 10:
+            LOGGER.warning("Minimum Quality allowed is 10., Quality set to 10")
+            CUSTOM_QUALITY = 10
+        if 66.9 < CUSTOM_QUALITY < 100:
+            if not E_BITRATE:
+                BITRATE = 128000  # More Better audio quality use 320000 for high-quality audio (320 kbps)
+        elif 50 < CUSTOM_QUALITY < 66.9:
+            if not E_BITRATE:
+                BITRATE = 96000  # Adjust for medium quality
+        else:
+            if not E_BITRATE:
+                BITRATE = 64000  # Adjust for lower quality
+    except:
+        if CUSTOM_QUALITY.lower() == 'high':
+            CUSTOM_QUALITY = 100
+        elif CUSTOM_QUALITY.lower() == 'medium':
+            CUSTOM_QUALITY = 66.9
+        elif CUSTOM_QUALITY.lower() == 'low':
+            CUSTOM_QUALITY = 50
+        else:
+            LOGGER.warning("Invalid QUALITY specified. Defaulting to High.")
+            CUSTOM_QUALITY = 100
 
 
     #help strings 
