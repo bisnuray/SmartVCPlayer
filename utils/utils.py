@@ -23,6 +23,7 @@ try:
     from bot import bot
     from pyrogram import enums
     from PTN import parse
+    from config import Config
     import subprocess
     import asyncio
     import json
@@ -777,21 +778,32 @@ async def stream_from_link(link):
 
 
 async def get_link(file):
-    ytdl_cmd = [ "yt-dlp", "--geo-bypass", "-g", "-f", "best[height<=?720][width<=?1280]/best", file]
+    ytdl_cmd = [
+        "yt-dlp",
+        "--geo-bypass",
+        "-g",
+        "-f", "best[height<=?720][width<=?1280]/best",
+        "--cookies", Config.YT_COOKIES_PATH,  # Adding the cookies option
+        "--no-warnings",  # Added no_warnings option
+        file
+    ]
     process = await asyncio.create_subprocess_exec(
         *ytdl_cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
     output, err = await process.communicate()
+
     if not output:
         LOGGER.error(str(err.decode()))
         if Config.playlist or Config.STREAM_LINK:
             return await skip()
         else:
-            LOGGER.error("This stream is not supported , leaving VC.")
+            LOGGER.error("This stream is not supported, leaving VC.")
             await leave_call()
             return False
+
     stream = output.decode().strip()
     link = (stream.split("\n"))[-1]
+
     if link:
         return link
     else:
@@ -799,7 +811,7 @@ async def get_link(file):
         if Config.playlist or Config.STREAM_LINK:
             return await skip()
         else:
-            LOGGER.error("This stream is not supported , leaving VC.")
+            LOGGER.error("This stream is not supported, leaving VC.")
             await leave_call()
             return False
 
