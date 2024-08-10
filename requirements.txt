@@ -1,4 +1,4 @@
-pyrogram
+pyrofork
 py-tgcalls==0.9.7
 parse-torrent-name
 tgcrypto
