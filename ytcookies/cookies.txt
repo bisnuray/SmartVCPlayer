@@ -1,0 +1,3 @@
+# Netscape HTTP Cookie File
+
+Use Youtube.com Netscape Format Cookies , Must be login 1st with gmail
