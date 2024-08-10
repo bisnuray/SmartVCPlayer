@@ -50,7 +50,7 @@
 
 1. `LOG_GROUP` : Group to send Playlist, if CHAT is a Group()
 2. `ADMINS` : ID of users who can use admin commands.
-3. `STARTUP_STREAM` : This will be streamed on startups and restarts of bot. You can use either any STREAM_URL or a direct link of any video or a Youtube Live link. You can also use YouTube Playlist.Find a Telegram Link for your playlist from [PlayList Dumb](https://telegram.dog/DumpPlaylist) or get a PlayList from [PlayList Extract](https://telegram.dog/GetAPlaylistbot). The PlayList link should in form `https://t.me/DumpPlaylist/xxx`.
+3. `STARTUP_STREAM` : This will be streamed on startups and restarts of bot. You can use either any STREAM_URL or a direct link of any video or a Youtube Live link.
 4. `REPLY_MESSAGE` : A reply to those who message the USER account in PM. Leave it blank if you do not need this feature. (Configurable through bot if mongodb added.)
 5. `ADMIN_ONLY` : Pass `True` If you want to make /play command only for admins of `CHAT`. By default /play is available for all.(Configurable through bot if mongodb added.)
 6. `DATABASE_NAME`: Database name for your mongodb database.
@@ -68,12 +68,39 @@
 19. `BITRATE` : Bitrate of audio (Not recommended to change).
 20. `FPS` : Fps of video to be played (Not recommended to change.)
 
+## Handling YouTube Download Errors with Cookies
+
+To avoid errors related to YouTube sign-in requirements, using a cookie file is effective. Here's how to set it up:
+
+### Steps to Export and Use Cookies:
+
+1. **Create a Dedicated Chrome Profile:**
+   - It's recommended to create a new Chrome profile for managing your bot's cookies.
+
+2. **Install a Cookie Management Extension:**
+   - Use "Cookie Editor" or similar extensions to manage your cookies.
+
+3. **Export Cookies from YouTube:**
+   - Log into YouTube in your new browser profile and export cookies in Netscape format via the cookie extension.
+
+4. **Save the Cookies File:**
+   - Update your `cookies.txt` in the `SmartVCPlayer/ytcookies` directory of your project.
+
+### Managing Cookies:
+
+- **Cookie Expiry:**
+  - Refresh your cookies by exporting new ones if you encounter download issues.
+
+- **Cookie Depletion:**
+  - Avoid frequent bot restarts and excessive YouTube requests to prevent early cookie expiry.
+
+This setup should help manage YouTube content access efficiently without encountering sign-in or bot protection errors.
+
 ## Prerequisites
 
 - Python 3.8 or higher.
 - NodeJS 15.0.0 or higher.
-- ffmpeg version 4.2.7-0ubuntu0.1
-- [FFMpeg](https://www.ffmpeg.org/).
+- FFMpeg
 
 ## Deploy to Heroku
 
