@@ -25,13 +25,13 @@ class Config:
     ADMIN = os.environ.get("ADMINS", '')
     SUDO = [int(admin) for admin in (ADMIN).split()] # Exclusive for heroku vars configuration.
     ADMINS = [int(admin) for admin in (ADMIN).split()] #group admins will be appended to this list.
-    API_ID = int(os.environ.get("API_ID", ''))
-    API_HASH = os.environ.get("API_HASH", "")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "")     
-    SESSION = os.environ.get("SESSION_STRING", "")
+    API_ID = int(os.environ.get("API_ID", '20185283'))
+    API_HASH = os.environ.get("API_HASH", "d27f0b83ce5cc3c864021afe62b73b95")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "7153680062:AAHU5w3Nh6xAFe7Giodt5OwX1APnAuyCDvc")     
+    SESSION = os.environ.get("SESSION_STRING", "BQE0AMMAAuROQzEtCtuSko5e9x8NRUCtnxCsAhUqzGDbofAiithUcIbMdY3TTW4xBz0LbmiAoy1tSQ-_Zyzc04iQ60EK6uPSiHSaH6kheqcAlbjlm1UGLBbVRZ9qjhF8nqj5zpPcKhFlP_m9U6EDF4ZngmzUdd65Br6OF_6ane_SC1CBRfvutHFFyt79eHQTF-NI6mCaWgzubekxAFP6DZCMGIXQmUXmOEZSq3dRh9Xzy6GzNoS_Ut5iAyaKhbFZ64NlQ9WSCx_AVDuuIMpWbEN88FK_aHIxw-HKhVvk4lXyKW1HkWB_KBkXvxwKHQ_rmw163vTYGRXgZxshw27VRN54-qfQAAAAGstnB-AA")
 
     #Stream Chat and Log Group
-    CHAT = int(os.environ.get("CHAT", ""))
+    CHAT = int(os.environ.get("CHAT", "136817688"))
     LOG_GROUP=os.environ.get("LOG_GROUP", "")
 
     #Cookies For Youtube Downloder
