@@ -35,7 +35,7 @@ class Config:
     LOG_GROUP=os.environ.get("LOG_GROUP", "")
 
     #Cookies For Youtube Downloder
-    YT_COOKIES_PATH = "/root/SmartVCPlayer/ytcookies/cookies.txt"
+    YT_COOKIES_PATH = os.path.join(os.getcwd(), "ytcookies", "cookies.txt")
 
     #Stream 
     STREAM_URL=os.environ.get("STARTUP_STREAM", "https://d2q8p4pe5spbak.cloudfront.net/bpk-tv/9XM/9XM.isml/9XM-audio_208482_und=208000-video=2137600.m3u8")
