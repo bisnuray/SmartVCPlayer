@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <em>SmartVCPlayer bot streams videos & audio in Telegram voice chats for both groups and channels, supporting live streams, YouTube videos, Telegram media, scheduling, recording, and more.</em>
+  <em>VCPlayer bot streams videos & audio in Telegram voice chats for both groups and channels, supporting live streams, YouTube videos, Telegram media, scheduling, recording, and more.</em>
 </p>
 
 ---
@@ -36,7 +36,7 @@
 1. `API_ID` - Obtain from [my.telegram.org](https://my.telegram.org/)
 2. `API_HASH` - Obtain from [my.telegram.org](https://my.telegram.org)
 3. `BOT_TOKEN` - Create a bot via [@Botfather](https://telegram.dog/BotFather)
-4. `SESSION_STRING` - Generate using [![GenerateStringName](https://img.shields.io/badge/repl.it-generateStringName-yellowgreen)](https://replit.com/@TheSmartBisnu/getStringName)
+4. `SESSION_STRING` -  Open [@SmartUtilBot](https://t.me/SmartUtilBot). Bot and use /pyro command and then follow all instructions.
 5. `CHAT` - Channel/Group ID where the bot plays music.
 
 ### Recommended Optional Vars
