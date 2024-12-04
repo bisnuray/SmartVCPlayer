@@ -130,7 +130,7 @@ python3 main.py
 ## Update Author 🧑‍💻
 
 - Name: Bisnu Ray
-- Telegram: [@SmartBisnuBio](https://t.me/SmartBisnuBio)
+- Telegram: [@itsSmartDev](https://t.me/itsSmartDev)
 
 ## Notice 🔔🔔
 
