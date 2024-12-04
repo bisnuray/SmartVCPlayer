@@ -1,4 +1,4 @@
-<h1 align="center">SmartVCPlayer Telegram Bot 🎸</h1>
+<h1 align="center">VCPlayer Telegram Bot 🎸</h1>
 
 <p align="center">
   <a href="https://github.com/bisnuray/SmartVCPlayer/stargazers"><img src="https://img.shields.io/github/stars/bisnuray/SmartVCPlayer?color=blue&style=flat" alt="GitHub Repo stars"></a>
@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <em>VCPlayer bot streams videos & audio in Telegram voice chats for both groups and channels, supporting live streams, YouTube videos, Telegram media, scheduling, recording, and more.</em>
+  <em>VCPlayer bot: Streams videos & audio in Telegram voice chats for both groups and channels. It supports live streams, YouTube videos, and Telegram media. It also supports scheduling streams, recording, and more.</em>
 </p>
 
 ---
