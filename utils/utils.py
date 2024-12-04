@@ -2,11 +2,11 @@
 # Update By (C) @theSmartBisnu
 # Channel : https://t.me/itsSmartDev
 
-
 from .logger import LOGGER
 try:
     from pyrogram.raw.types import InputChannel
-    from apscheduler.schedulers.asyncio import AsyncIOScheduler   
+    from apscheduler.schedulers.asyncio import AsyncIOScheduler
+    from pyrogram.errors.exceptions.forbidden_403 import GroupcallForbidden    
     from apscheduler.jobstores.mongodb import MongoDBJobStore
     from apscheduler.jobstores.base import ConflictingIdError
     from pyrogram.raw.functions.channels import GetFullChannel
@@ -900,25 +900,32 @@ async def chek_the_media(link, seek=False, pic=False, title="Music"):
 
 async def edit_title():
     if Config.STREAM_LINK:
-        title="Live Stream"
-    elif Config.playlist:
-        title = Config.playlist[0][1]   
-    else:       
         title = "Live Stream"
+    elif Config.playlist:
+        title = Config.playlist[0][1]
+    else:
+        title = "Live Stream"
+    
     try:
         chat = await USER.resolve_peer(Config.CHAT)
-        full_chat=await USER.invoke(
+        full_chat = await USER.invoke(
             GetFullChannel(
                 channel=InputChannel(
                     channel_id=chat.channel_id,
                     access_hash=chat.access_hash,
-                    ),
                 ),
             )
+        )
         edit = EditGroupCallTitle(call=full_chat.full_chat.call, title=title)
         await USER.invoke(edit)
+    
+    except GroupcallForbidden as e:
+        # Handle the specific GroupcallForbidden error
+        LOGGER.error(f"Cannot edit group call title: Group call has ended or user may not have permission. Error: {e}")
+    
     except Exception as e:
-        LOGGER.error(f"Errors Occured while editing title - {e}", exc_info=True)
+        # Handle any other errors
+        LOGGER.error(f"Error occurred while editing title: {e}", exc_info=True)
         pass
 
 async def stop_recording():
@@ -1414,10 +1421,6 @@ async def get_admins(chat):
     return admins
 
 
-
-
-
-
 async def is_admin(_, client, message: Message):
     admins = await get_admins(Config.CHAT)
     if message.from_user is None and message.sender_chat:
@@ -1461,13 +1464,13 @@ async def get_playlist_str():
             tplaylist=Config.playlist[:25]
             pl=f"<b>Listing first 25 songs of total {len(Config.playlist)} songs.</b>\n"
             pl += f"🎵 **Music Playlist:**\n━━━━━━━━━━━━━━━━━━━:\n" + "\n".join([
-                f"**{i}**. **🎸 Song: {x[1]}**\n   🧑‍💼**Requested by:** {x[4]}"
+                f"**{i}**. **🎸 {x[1]}**\n   🧑‍💼**Requested by:** {x[4]}"
                 for i, x in enumerate(tplaylist)
                 ])
             tplaylist.clear()
         else:
             pl = f"🎵 **Music Playlist**:\n━━━━━━━━━━━━━━━━━━━\n" + "\n".join([
-                f"**{i}**. **🎸 Song: {x[1]}**\n   🧑‍💼**Requested by:** <b>{x[4]}</b>\n"
+                f"**{i}**. **🎸 {x[1]}**\n   🧑‍💼**Requested by:** <b>{x[4]}</b>\n"
                 for i, x in enumerate(Config.playlist)
             ])
     return pl
@@ -1498,11 +1501,8 @@ async def get_buttons():
                     InlineKeyboardButton('🔊 Volume Control', callback_data='volume_main'),
                     InlineKeyboardButton('🗑 Close', callback_data='close'),
                 ],
-            [
-                InlineKeyboardButton(base64.b32decode('=A3KGXZNBD2GEQUMULYIGYVK'[::-1].encode('utf-8')).decode('utf-8'), url=base64.b32decode('=Q5KGCROSLY2WJNOUL26SSVNOB56SXIHTD4IH2BN'[::-1].encode('utf-8')).decode('utf-8')),
-            ],
             ]
-            )
+        )
             
             
             
