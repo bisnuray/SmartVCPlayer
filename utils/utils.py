@@ -91,7 +91,11 @@ if Config.DATABASE_URI:
     scheduler = AsyncIOScheduler(jobstores=jobstores)
 else:
     scheduler = AsyncIOScheduler()
-scheduler.start()
+
+async def run_loop_scheduler():
+    scheduler.start()
+
+asyncio.get_event_loop().run_until_complete(run_loop_scheduler())
 dl=Downloader()
 
 async def play():
