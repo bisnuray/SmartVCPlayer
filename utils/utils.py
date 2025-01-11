@@ -1903,16 +1903,16 @@ async def startup_check():
             LOGGER.error(f"RECORDING_DUMP var Found and @{Config.USER_ID} is not a member of the group./ Channel")
             Config.STARTUP_ERROR=f"RECORDING_DUMP var Found and @{Config.USER_ID} is not a member of the group./ Channel"
             return False
-        if not k.status in ["administrator", "creator"]:
+        if not k.status in [enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER]:
             LOGGER.error(f"RECORDING_DUMP var Found and @{Config.USER_ID} is not a admin of the group./ Channel")
             Config.STARTUP_ERROR=f"RECORDING_DUMP var Found and @{Config.USER_ID} is not a admin of the group./ Channel"
             return False
     if Config.CHAT:
         try:
             k=await USER.get_chat_member(Config.CHAT, Config.USER_ID)
-            if not k.status in ["administrator", "creator"]:
+            if not k.status in [enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER]:
                 LOGGER.warning(f"{Config.USER_ID} is not an admin in {Config.CHAT}, it is recommended to run the user as admin.")
-            elif k.status in ["administrator", "creator"] and not k.can_manage_voice_chats:
+            elif k.status in [enums.ChatMemberStatus.ADMINISTRATOR] and not k.privileges.can_manage_video_chats:
                 LOGGER.warning(f"{Config.USER_ID} is not having right to manage voicechat, it is recommended to promote with this right.")
         except (ValueError, PeerIdInvalid, ChannelInvalid):
             Config.STARTUP_ERROR=f"The user account by which you generated the SESSION_STRING is not found on CHAT ({Config.CHAT})"
@@ -1920,7 +1920,7 @@ async def startup_check():
             return False
         try:
             k=await bot.get_chat_member(Config.CHAT, Config.BOT_USERNAME)
-            if not k.status == "administrator":
+            if not k.status == enums.ChatMemberStatus.ADMINISTRATOR:
                 LOGGER.warning(f"{Config.BOT_USERNAME}, is not an admin in {Config.CHAT}, it is recommended to run the bot as admin.")
         except (ValueError, PeerIdInvalid, ChannelInvalid):
             Config.STARTUP_ERROR=f"Bot Was Not Found on CHAT, it is recommended to add {Config.BOT_USERNAME} to {Config.CHAT}"
