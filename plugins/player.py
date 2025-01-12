@@ -127,7 +127,7 @@ async def add_to_playlist(client, message):
                     song_name, artist_name = get_song_and_artist(query)
                     query = f"{song_name} {artist_name}"
                 except Exception as e:
-                    await msg.edit(f"<b>Error fetching Spotify track info: {str(e)}</b>")
+                    await msg.edit(f"<b>Set valid Spotify API credentials in the config to play tracks</b>")
                     return
 
             regex = r"^(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?"
