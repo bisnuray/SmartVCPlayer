@@ -99,15 +99,17 @@ To avoid errors related to YouTube sign-in requirements, using a cookie file is 
 
 This setup should help manage YouTube content access efficiently without encountering sign-in or bot protection errors.
 
-## Requirements
+## System Requirements
 
-- Python 3.8 or higher.
-- NodeJS 15.0.0 or higher.
-- FFMpeg
+- **Python:** Version 3.8 or higher recommended.
+- **NodeJS:** Version 15.0.0 or higher.
+- **FFMpeg:** Necessary for media processing.
+
+Ensure that your environment meets these specifications to guarantee full functionality of the script.
 
 ## Deploy to Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://github.com/bisnuray/SmartVCPlayer)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://github.com/bisnuray/TelecastBot)
 
 ## Deploy to VPS
 
