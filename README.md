@@ -19,6 +19,7 @@
 - **Playlist and Queue Management:** Smooth transitions with zero downtime.
 - **Video Recording:** Capture moments directly from voice chats.
 - **Voicechat Scheduling:** Plan and automate your streams.
+- **Spotify Track Support:** Stream music directly from Spotify track links.
 - **Flexible UI:** Easy control over the player with an intuitive interface.
 - **Customizable Settings:** Toggle between audio or video modes, adjust quality, and more.
 - **YouTube Playlist Support:** Stream directly from YouTube playlists.
@@ -67,6 +68,8 @@
 18. `QUALITY` : Customize the quality of video chat, use one of `high`, `medium`, `low` . 
 19. `BITRATE` : Bitrate of audio (Not recommended to change).
 20. `FPS` : Fps of video to be played (Not recommended to change.)
+21. `SPOTIFY_CLIENT_ID` - Your Spotify Client ID, obtain from [Spotify Developer Console](https://developer.spotify.com/dashboard/).
+22. `SPOTIFY_CLIENT_SECRET` - Your Spotify Client Secret, obtain from [Spotify Developer Console](https://developer.spotify.com/dashboard/).
 
 ## Handling YouTube Download Errors with Cookies
 
