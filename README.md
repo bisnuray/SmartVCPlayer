@@ -1,4 +1,4 @@
-<h1 align="center">VCPlayer Telegram Bot 🎸</h1>
+<h1 align="center">TelecastBot Telegram Bot 🎸</h1>
 
 <p align="center">
   <a href="https://github.com/bisnuray/SmartVCPlayer/stargazers"><img src="https://img.shields.io/github/stars/bisnuray/SmartVCPlayer?color=blue&style=flat" alt="GitHub Repo stars"></a>
@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <em>VCPlayer bot: Streams videos & audio in Telegram voice chats for both groups and channels. It supports live streams, YouTube videos, and Telegram media. It also supports scheduling streams, recording, and more.</em>
+  <em>TelecastBot: Streams videos & audio in Telegram voice chats for both groups and channels. It supports live streams, YouTube videos, and Telegram media. It also supports scheduling streams, recording, and more.</em>
 </p>
 
 ---
@@ -112,8 +112,8 @@ This setup should help manage YouTube content access efficiently without encount
 ## Deploy to VPS
 
 ```sh
-git clone https://github.com/bisnuray/SmartVCPlayer
-cd SmartVCPlayer
+git clone https://github.com/bisnuray/TelecastBot
+cd TelecastBot
 pip3 install -r requirements.txt
 # install node js
 sudo bash install_node.sh
@@ -141,7 +141,7 @@ python3 main.py
 
 ## Credits 🏆
 
-Huge thanks to the following individuals and their projects for making SmartVCPlayer possible:
+Huge thanks to the following individuals and their projects for making TelecastBot possible:
 
 - **[Laky-64](https://github.com/Laky-64)** for [py-tgcalls](https://github.com/pytgcalls/pytgcalls), enabling advanced voice chat capabilities.
 - **[Dan](https://github.com/delivrance)** for [Pyrogram](https://github.com/pyrogram/pyrogram), a robust framework for Telegram bot development.
