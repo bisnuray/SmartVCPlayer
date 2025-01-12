@@ -33,7 +33,8 @@ from utils import (
     stream_from_link, 
     chat_filter,
     c_play,
-    is_ytdl_supported
+    is_ytdl_supported,
+    get_song_and_artist
 )
 from pyrogram.types import (
     InlineKeyboardMarkup, 
@@ -50,7 +51,6 @@ from pyrogram import (
     Client, 
     filters
     )
-
 
 admin_filter=filters.create(is_admin) 
 
@@ -120,6 +120,16 @@ async def add_to_playlist(client, message):
                 await msg.edit("<b>You Didn't gave me anything to play.</b>")
                 await delete_messages([message, msg])
                 return
+
+            # Spotify Track Handling
+            if "spotify.com/track" in query:
+                try:
+                    song_name, artist_name = get_song_and_artist(query)
+                    query = f"{song_name} {artist_name}"
+                except Exception as e:
+                    await msg.edit(f"<b>Error fetching Spotify track info: {str(e)}</b>")
+                    return
+
             regex = r"^(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?"
             match = re.match(regex,query)
             if match:
@@ -150,6 +160,7 @@ async def add_to_playlist(client, message):
                         await msg.edit("<b>Invalid link ❌ , provide me a direct link or a youtube link.</b>")
                         await delete_messages([message, msg])
                         return
+
             else:
                 type="query"
                 ysearch=query
@@ -229,7 +240,7 @@ async def add_to_playlist(client, message):
             except Exception as e:
                 LOGGER.error(e, exc_info=True)
                 await msg.edit(
-                    f"<b>YouTube Download Error ❌\nError:- {e}</b>"
+                    f"<b>Error ❌ Use cookies-from-browser or cookies for the authentication.</b>"
                     )
                 LOGGER.error(str(e))
                 await delete_messages([message, msg])
