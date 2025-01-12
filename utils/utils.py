@@ -10,6 +10,7 @@ try:
     from apscheduler.jobstores.mongodb import MongoDBJobStore
     from apscheduler.jobstores.base import ConflictingIdError
     from pyrogram.raw.functions.channels import GetFullChannel
+    from urllib.parse import urlparse, parse_qs
     from pytgcalls import StreamType
     import yt_dlp
     from pyrogram import filters
@@ -26,6 +27,7 @@ try:
     from config import Config
     import subprocess
     import asyncio
+    import requests
     import json
     import random
     import time
@@ -97,6 +99,43 @@ async def run_loop_scheduler():
 
 asyncio.get_event_loop().run_until_complete(run_loop_scheduler())
 dl=Downloader()
+
+def get_spotify_access_token():
+    headers = {
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+    data = {
+        "grant_type": "client_credentials",
+        "client_id": Config.SPOTIFY_CLIENT_ID,
+        "client_secret": Config.SPOTIFY_CLIENT_SECRET
+    }
+    response = requests.post(Config.SPOTIFY_TOKEN_URL, headers=headers, data=data)
+    response.raise_for_status()
+    return response.json().get("access_token")
+
+def get_track_id_from_url(spotify_url):
+    parsed_url = urlparse(spotify_url)
+    path_segments = parsed_url.path.split("/")
+    if len(path_segments) > 2 and path_segments[1] == "track":
+        return path_segments[2]
+    return None
+
+def get_song_and_artist(spotify_url):
+    track_id = get_track_id_from_url(spotify_url)
+    if not track_id:
+        raise ValueError("Invalid Spotify track URL")
+
+    access_token = get_spotify_access_token()
+    headers = {
+        "Authorization": f"Bearer {access_token}"
+    }
+    response = requests.get(f"{Config.SPOTIFY_TRACK_API_URL}{track_id}", headers=headers)
+    response.raise_for_status()
+
+    track_info = response.json()
+    song_name = track_info.get("name")
+    artist_name = ", ".join(artist["name"] for artist in track_info.get("artists", []))
+    return song_name, artist_name
 
 async def play():
     song=Config.playlist[0]    
@@ -1903,16 +1942,16 @@ async def startup_check():
             LOGGER.error(f"RECORDING_DUMP var Found and @{Config.USER_ID} is not a member of the group./ Channel")
             Config.STARTUP_ERROR=f"RECORDING_DUMP var Found and @{Config.USER_ID} is not a member of the group./ Channel"
             return False
-        if not k.status in [enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER]:
+        if not k.status in ["administrator", "creator"]:
             LOGGER.error(f"RECORDING_DUMP var Found and @{Config.USER_ID} is not a admin of the group./ Channel")
             Config.STARTUP_ERROR=f"RECORDING_DUMP var Found and @{Config.USER_ID} is not a admin of the group./ Channel"
             return False
     if Config.CHAT:
         try:
             k=await USER.get_chat_member(Config.CHAT, Config.USER_ID)
-            if not k.status in [enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER]:
+            if not k.status in ["administrator", "creator"]:
                 LOGGER.warning(f"{Config.USER_ID} is not an admin in {Config.CHAT}, it is recommended to run the user as admin.")
-            elif k.status in [enums.ChatMemberStatus.ADMINISTRATOR] and not k.privileges.can_manage_video_chats:
+            elif k.status in ["administrator", "creator"] and not k.can_manage_voice_chats:
                 LOGGER.warning(f"{Config.USER_ID} is not having right to manage voicechat, it is recommended to promote with this right.")
         except (ValueError, PeerIdInvalid, ChannelInvalid):
             Config.STARTUP_ERROR=f"The user account by which you generated the SESSION_STRING is not found on CHAT ({Config.CHAT})"
@@ -1920,7 +1959,7 @@ async def startup_check():
             return False
         try:
             k=await bot.get_chat_member(Config.CHAT, Config.BOT_USERNAME)
-            if not k.status == enums.ChatMemberStatus.ADMINISTRATOR:
+            if not k.status == "administrator":
                 LOGGER.warning(f"{Config.BOT_USERNAME}, is not an admin in {Config.CHAT}, it is recommended to run the bot as admin.")
         except (ValueError, PeerIdInvalid, ChannelInvalid):
             Config.STARTUP_ERROR=f"Bot Was Not Found on CHAT, it is recommended to add {Config.BOT_USERNAME} to {Config.CHAT}"
