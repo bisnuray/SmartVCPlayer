@@ -87,7 +87,7 @@ To avoid errors related to YouTube sign-in requirements, using a cookie file is 
    - Log into YouTube in your new browser profile and export cookies in Netscape format via the cookie extension.
 
 4. **Save the Cookies File:**
-   - Update your `cookies.txt` in the `SmartVCPlayer/ytcookies` directory of your project.
+   - Update your `cookies.txt` in the `TelecastBot/ytcookies` directory of your project.
 
 ### Managing Cookies:
 
@@ -99,7 +99,7 @@ To avoid errors related to YouTube sign-in requirements, using a cookie file is 
 
 This setup should help manage YouTube content access efficiently without encountering sign-in or bot protection errors.
 
-## Prerequisites
+## Requirements
 
 - Python 3.8 or higher.
 - NodeJS 15.0.0 or higher.
@@ -121,23 +121,20 @@ sudo bash install_node.sh
 python3 main.py
 ```
 
-## 📌 Top Music Stream Live Link
+# Project Contributors
 
-- [Live Channel](https://telegra.ph/Top-Music-Stream-Live-Link-02-02).
+### Main Author 🧑‍💻
+- **Name:** Subin
+- **Telegram:** [@subin_works](https://t.me/subin_works)
 
-## Main Author 🧑‍💻
+### Contributing Author 🧑‍💻
+- **Name:** Bisnu Ray
+- **Telegram:** [@itsSmartDev](https://t.me/itsSmartDev)
 
-- Name: Subin
-- Telegram: [@subin_works](https://t.me/subin_works)
+---
 
-## Update Author 🧑‍💻
+For inquiries or feedback, please feel free to reach out via Telegram.
 
-- Name: Bisnu Ray
-- Telegram: [@itsSmartDev](https://t.me/itsSmartDev)
-
-## Notice 🔔🔔
-
-<b>Editing a few lines of code and claiming authorship does not make you a developer. Fork responsibly and credit original sources.</b>
-
-Feel free to reach out if you have any questions or feedback.
+## Ethical Notice 🔔
+> **Ethics Reminder:** Simply modifying a few lines of code does not constitute original authorship. When forking a project, always fork responsibly and give proper credit to the original creators.
 
