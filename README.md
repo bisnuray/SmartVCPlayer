@@ -139,13 +139,5 @@ python3 main.py
 
 <b>Editing a few lines of code and claiming authorship does not make you a developer. Fork responsibly and credit original sources.</b>
 
-## Credits 🏆
-
-Huge thanks to the following individuals and their projects for making TelecastBot possible:
-
-- **[Laky-64](https://github.com/Laky-64)** for [py-tgcalls](https://github.com/pytgcalls/pytgcalls), enabling advanced voice chat capabilities.
-- **[Dan](https://github.com/delivrance)** for [Pyrogram](https://github.com/pyrogram/pyrogram), a robust framework for Telegram bot development.
-
-Their contributions are pivotal to the functionality and success of SmartVCPlayer.
-
+Feel free to reach out if you have any questions or feedback.
 
