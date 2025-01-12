@@ -40,6 +40,13 @@ class Config:
     #Stream 
     STREAM_URL=os.environ.get("STARTUP_STREAM", "https://d2q8p4pe5spbak.cloudfront.net/bpk-tv/9XM/9XM.isml/9XM-audio_208482_und=208000-video=2137600.m3u8")
    
+    # Spotify API configuration
+    SPOTIFY_CLIENT_ID = ""
+    SPOTIFY_CLIENT_SECRET = ""
+    # Don't touch these
+    SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token"
+    SPOTIFY_TRACK_API_URL = "https://api.spotify.com/v1/tracks/"
+
     # Database
     DATABASE_URI = os.environ.get("DATABASE_URI", None)
     DATABASE_NAME = os.environ.get("DATABASE_NAME", "SmartVCPlayer")
