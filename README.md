@@ -1,11 +1,11 @@
 <h1 align="center">TelecastBot Telegram Bot 🎸</h1>
 
 <p align="center">
-  <a href="https://github.com/bisnuray/SmartVCPlayer/stargazers"><img src="https://img.shields.io/github/stars/bisnuray/SmartVCPlayer?color=blue&style=flat" alt="GitHub Repo stars"></a>
-  <a href="https://github.com/bisnuray/SmartVCPlayer/issues"><img src="https://img.shields.io/github/issues/bisnuray/SmartVCPlayer" alt="GitHub issues"></a>
-  <a href="https://github.com/bisnuray/SmartVCPlayer/pulls"><img src="https://img.shields.io/github/issues-pr/bisnuray/SmartVCPlayer" alt="GitHub pull requests"></a>
-  <a href="https://github.com/bisnuray/SmartVCPlayer/graphs/contributors"><img src="https://img.shields.io/github/contributors/bisnuray/SmartVCPlayer?style=flat" alt="GitHub contributors"></a>
-  <a href="https://github.com/bisnuray/SmartVCPlayer/network/members"><img src="https://img.shields.io/github/forks/bisnuray/SmartVCPlayer?style=flat" alt="GitHub forks"></a>
+  <a href="https://github.com/bisnuray/TelecastBot/stargazers"><img src="https://img.shields.io/github/stars/bisnuray/TelecastBot?color=blue&style=flat" alt="GitHub Repo stars"></a>
+  <a href="https://github.com/bisnuray/TelecastBot/issues"><img src="https://img.shields.io/github/issues/bisnuray/TelecastBot" alt="GitHub issues"></a>
+  <a href="https://github.com/bisnuray/TelecastBot/pulls"><img src="https://img.shields.io/github/issues-pr/bisnuray/TelecastBot" alt="GitHub pull requests"></a>
+  <a href="https://github.com/bisnuray/TelecastBot/graphs/contributors"><img src="https://img.shields.io/github/contributors/bisnuray/TelecastBot?style=flat" alt="GitHub contributors"></a>
+  <a href="https://github.com/bisnuray/TelecastBot/network/members"><img src="https://img.shields.io/github/forks/bisnuray/TelecastBot?style=flat" alt="GitHub forks"></a>
 </p>
 
 <p align="center">
